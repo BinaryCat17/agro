@@ -1,8 +1,9 @@
 services:
-  back:
+  agro-back:
     build:
       context: ../
       dockerfile: docker/Dockerfile.back.dev
+    image: agro-back-dev:$TAG
     volumes:
       - type: bind
         source: ../
@@ -12,10 +13,11 @@ services:
       - "$BACK_PORT:8081"
     env_file: ../.env
 
-  front:
+  agro-front:
     build:
       context: ../
-      dockerfile: docker/Dockerfile.front.dev  
+      dockerfile: docker/Dockerfile.front.dev
+    image: agro-front-dev/agro-front:$TAG
     volumes:
       - type: bind
         source: ../
